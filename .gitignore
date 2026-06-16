@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+data/chroma_store/
+data/rejected_inputs.log
+data/SIC_2007_index.xlsx
