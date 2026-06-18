@@ -1,0 +1,13 @@
+mkdir -p .streamlit
+cat > .streamlit/config.toml << 'EOF'
+[server]
+headless = true
+port = 8501
+
+[theme]
+primaryColor = "#2E5FA3"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F4FA"
+textColor = "#1F3864"
+font = "sans serif"
+EOF

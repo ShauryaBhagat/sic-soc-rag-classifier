@@ -218,7 +218,6 @@ __marimo__/
 .streamlit/secrets.toml
 data/chroma_store/
 data/rejected_inputs.log
-data/SIC_2007_index.xlsx
 data/audit_log.jsonl
 data/classification_results.csv
 data/eval_report.json
