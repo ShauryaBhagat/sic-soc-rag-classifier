@@ -1,0 +1,31 @@
+version: "3.9"
+
+# Local development setup for SIC/SOC RAG Classifier.
+# Provides the app and a local ChromaDB container for reproducibility.
+# Production deployment uses Streamlit Community Cloud with in-memory ChromaDB.
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY}
+      - LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY}
+      - LANGFUSE_HOST=${LANGFUSE_HOST}
+    volumes:
+      - ./data:/app/data
+    command: streamlit run app.py --server.headless true
+    depends_on:
+      - chromadb
+
+  chromadb:
+    image: chromadb/chroma:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+
+volumes:
+  chroma_data:
